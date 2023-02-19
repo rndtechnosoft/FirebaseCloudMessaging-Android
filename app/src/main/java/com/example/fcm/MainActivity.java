@@ -1,5 +1,7 @@
 package com.example.fcm;
 
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -7,8 +9,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,7 +35,7 @@ import java.util.Scanner;
 import static com.example.fcm.R.id.txt;
 
 public class MainActivity extends AppCompatActivity {
-	private static final String AUTH_KEY = "key=YOUR-SERVER-KEY";
+	private static final String AUTH_KEY = "key=AAAAp9QVxFc:APA91bG9cPy3Kkn4ip1ZVcgINBrKbUFMlJqe5cH1doOTBhYEEDgfEmwCuXgtKa-tcd_S9fb4ufybd_ToyO2TffYvy1nvoTwp5GVS9MnzFFH87gceKaDlDqvJTnDGmbI0xS0LHQkYX3iQ";
 	private TextView mTextView;
 	private String token;
 
@@ -116,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
 			switch(type) {
 				case "tokens":
 					JSONArray ja = new JSONArray();
-					ja.put("c5pBXXsuCN0:APA91bH8nLMt084KpzMrmSWRS2SnKZudyNjtFVxLRG7VFEFk_RgOm-Q5EQr_oOcLbVcCjFH6vIXIyWhST1jdhR8WMatujccY5uy1TE0hkppW_TSnSBiUsH_tRReutEgsmIMmq8fexTmL");
+					ja.put(AUTH_KEY);
 					ja.put(token);
 					jPayload.put("registration_ids", ja);
 					break;
